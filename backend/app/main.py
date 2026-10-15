@@ -27,7 +27,7 @@ app.add_middleware(
 async def startup_event():
     """Initialize database on startup."""
     init_db()
-    if settings.environment == "development":
+    if settings.environment == "development" or settings.seed_demo_data:
         db = SessionLocal()
         try:
             seed_database(db)

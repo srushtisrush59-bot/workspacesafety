@@ -412,7 +412,7 @@ pytest
 
 ### Render - Backend API
 
-Create a Render Blueprint from this repository using `render.yaml`. It provisions the FastAPI API and a PostgreSQL database. The free database is intended for demos and may have provider-specific limits; check Render's current plan details before relying on it for production data.
+Create a Render Blueprint from this repository using `render.yaml`. It provisions the FastAPI API and a PostgreSQL database, and opts in to clearly labeled demo records for a first-time empty database. The seeder skips databases that already contain application records. The free database is intended for demos and may have provider-specific limits; check Render's current plan details before relying on it for production data.
 
 After Render deploys, copy the API service URL (for example, `https://workspacesafety-api.onrender.com`). In Vercel, open the frontend project's **Settings → Environment Variables**, add `VITE_API_URL` with that API URL for Production, then redeploy the frontend. The Render service's `CORS_ORIGINS` is set to the current Vercel deployment URL; update it if the frontend domain changes.
 

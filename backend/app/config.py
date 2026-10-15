@@ -10,6 +10,7 @@ class Settings(BaseSettings):
     app_name: str = "Workplace Safety Sentinel"
     app_version: str = "1.0.0"
     environment: str = "development"
+    seed_demo_data: bool = False
     
     # API
     api_host: str = "0.0.0.0"
