@@ -410,12 +410,6 @@ pytest
 
 ## 🚀 Production Deployment
 
-### Vercel - Frontend
-
-The repository's `vercel.json` builds and deploys the Vite frontend from `frontend/` as a static site, including rewrites for client-side routes. Import the repository into Vercel with the repository root as the project root so this configuration is applied.
-
-The FastAPI backend is a separate service and must be hosted separately; Vercel serves only the frontend. Set the frontend build environment variable `VITE_API_URL` to the public URL of the deployed API before redeploying. Do not use `localhost` for a production API URL.
-
 ### Azure Deployment (Recommended)
 
 #### Backend - Azure Container Apps or App Service
