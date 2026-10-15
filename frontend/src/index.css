@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    font-family: 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
+    color-scheme: dark;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply m-0 min-w-[320px] bg-slate-950 text-slate-100 antialiased;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    @apply outline-none ring-2 ring-cyan-400 ring-offset-2 ring-offset-slate-950;
+  }
+}
+
+@layer components {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-slate-900;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-slate-700;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-600;
+  }
+
+  .card {
+    @apply rounded-2xl border border-white/[0.07] bg-slate-900/80 shadow-[0_12px_40px_rgba(0,0,0,0.16)];
+  }
+
+  .card-hover {
+    @apply transition-all duration-200 hover:-translate-y-0.5 hover:border-white/[0.14] hover:bg-slate-900;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-cyan-400 px-4 py-2.5 font-semibold text-slate-950 transition-colors duration-200 hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 font-medium text-slate-200 transition-colors duration-200 hover:bg-white/[0.08];
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-red-500 px-4 py-2.5 font-medium text-white transition-colors duration-200 hover:bg-red-400;
+  }
+
+  .btn-success {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 px-4 py-2.5 font-medium text-white transition-colors duration-200 hover:bg-emerald-400;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full border px-2.5 py-1 text-[11px] font-bold tracking-wide;
+  }
+
+  .badge-critical {
+    @apply border-red-500/25 bg-red-500/10 text-red-300;
+  }
+
+  .badge-high {
+    @apply border-orange-500/25 bg-orange-500/10 text-orange-300;
+  }
+
+  .badge-medium {
+    @apply border-amber-500/25 bg-amber-500/10 text-amber-300;
+  }
+
+  .badge-low {
+    @apply border-sky-500/25 bg-sky-500/10 text-sky-300;
+  }
+
+  .badge-success {
+    @apply border-emerald-500/25 bg-emerald-500/10 text-emerald-300;
+  }
+
+  .badge-info {
+    @apply border-cyan-500/25 bg-cyan-500/10 text-cyan-300;
+  }
+
+  .input,
+  .select,
+  .textarea {
+    @apply rounded-xl border border-white/10 bg-slate-950/70 px-4 py-2.5 text-slate-100 transition-colors placeholder:text-slate-500 focus:border-cyan-400/60 focus:outline-none focus:ring-2 focus:ring-cyan-400/20;
+  }
+
+  .textarea {
+    @apply resize-none;
+  }
+
+  .status-online {
+    @apply h-2 w-2 rounded-full bg-emerald-400;
+  }
+
+  .status-offline {
+    @apply h-2 w-2 rounded-full bg-red-400;
+  }
+
+  .status-warning {
+    @apply h-2 w-2 rounded-full bg-amber-400;
+  }
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+html[data-density='compact'] main > div {
+  padding: 1rem !important;
+}
+
+html[data-density='compact'] .card {
+  padding: 1rem !important;
+}
+
+html[data-density='compact'] main .space-y-6 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 1rem;
+}
+
+html[data-motion='reduced'] *,
+html[data-motion='reduced'] *::before,
+html[data-motion='reduced'] *::after {
+  scroll-behavior: auto !important;
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
